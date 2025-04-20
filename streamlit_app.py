@@ -6,24 +6,10 @@ st.set_page_config(page_title="GreenBoost Gemini App", layout="wide", page_icon=
 # Importations des modules
 import pandas as pd
 from PIL import Image
-import os
-from dotenv import load_dotenv
 from modules.gemini_utils import get_gemini_response
 from modules.prompt_templates import get_templates, generate_related_prompts
 from modules.analysis_tools import summarize_text, extract_keywords
 from modules.ui_components import show_footer
-
-# Charger les variables d'environnement depuis le fichier .env
-load_dotenv()
-
-# Lire la clé API depuis la variable d'environnement
-api_key = os.getenv("GOOGLE_API_KEY")
-
-if api_key is None:
-    raise ValueError("La clé API n'est pas définie dans le fichier .env.")
-
-import google.generativeai as genai
-genai.configure(api_key=api_key)
 
 # ✅ Affichage de l'image de bannière (une seule fois)
 banner_path = "assets/Kaggle.png"
@@ -72,6 +58,8 @@ if section == "🏠 Accueil":
     st.markdown("### 🔗 Liens utiles")
     st.markdown(
         "- 📘 [Notebook Kaggle du projet](https://www.kaggle.com/code/sofianechehboune/project-data-genai-2025q1-with-google-gemini)")
+    st.markdown(
+        "- 🏁 [Compétition Capstone Kaggle](https://www.kaggle.com/competitions/gen-ai-intensive-course-capstone-2025q1)")
 
     # 📄 Bouton de téléchargement du PDF
     pdf_path = "project_data_genai_2025q1_with_google_gemini.pdf"
@@ -124,7 +112,6 @@ elif section == "💡 Suggestions génériques":
     auto_prompt = templates[option]
 
     if st.button("Lancer l'analyse enrichie (suggestion générique)"):
-
         with st.spinner("Analyse enrichie avec IA..."):
             auto_output = get_gemini_response(auto_prompt)
             st.subheader("🧠 Résultat enrichi de l'IA")
@@ -134,7 +121,6 @@ elif section == "💡 Suggestions génériques":
             st.markdown(summarize_text(auto_output))
             st.markdown("### 🔑 Mots-clés")
             st.markdown(", ".join(extract_keywords(auto_output)))
-
 
 elif section == "📁 Analyse d’un fichier CSV":
     st.markdown("## 📁 Téléversement d'un fichier CSV")
