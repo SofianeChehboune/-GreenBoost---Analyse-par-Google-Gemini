@@ -85,7 +85,7 @@ greenboost-gemini-app/
 Pour publier votre app sur [Streamlit Cloud](https://streamlit.io/cloud), veillez à :
 
 - Ajouter `requirements.txt` et `config.toml`
-- Configurer votre variable `GOOGLE_API_KEY` dans l’onglet **"Secrets"**
+- Configurer votre variable `GOOGLE_API_KEY` dans l’onglet **".env"**
 - Définir `streamlit_app.py` comme script principal
 ## Consulter l'App : 
 [Streamlit App](https://dtgqb6h4k3yiubmghjsqdp.streamlit.app/)
