@@ -87,17 +87,16 @@ Pour publier votre app sur [Streamlit Cloud](https://streamlit.io/cloud), veille
 - Ajouter `requirements.txt` et `config.toml`
 - Configurer votre variable `GOOGLE_API_KEY` dans l’onglet **"Secrets"**
 - Définir `streamlit_app.py` comme script principal
+## Consulter l'App : 
+[Streamlit App](https://dtgqb6h4k3yiubmghjsqdp.streamlit.app/)
 
 ---
 
 ## 👤 Auteur
 
 **Sofiane Chehboune**  
-🔗 [LinkedIn](https://www.linkedin.com/in/sofiane-chehboune-5b243766/)  
-📧 Contact : Disponible sur Upwork / LinkedIn
-
----
-
-## 📄 Licence
-
-Ce projet est open-source sous licence MIT – libre à vous de l'utiliser et le modifier !
+📧 Contact :
+🔗 [LinkedIn](https://www.linkedin.com/in/sofiane-chehboune-5b243766/)   
+🔗 [Bluesky](https://bsky.app/profile/sofianepython.bsky.social)
+🔗[kaggle](https://www.kaggle.com/sofianechehboune)
+ 
