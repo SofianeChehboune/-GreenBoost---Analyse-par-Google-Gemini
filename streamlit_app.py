@@ -62,7 +62,7 @@ if section == "🏠 Accueil":
         "- 🏁 [Compétition Capstone Kaggle](https://www.kaggle.com/competitions/gen-ai-intensive-course-capstone-2025q1)")
 
     # 📄 Bouton de téléchargement du PDF
-    pdf_path = "project_data_genai_2025q1_with_google_gemini.pdf"
+    pdf_path = "Capstone_Project_Google_GenAI_2025.pdf"
     try:
         with open(pdf_path, "rb") as pdf_file:
             st.download_button(
