@@ -1,14 +1,29 @@
 # ✅ Configuration de la page Streamlit (doit être la première commande)
 import streamlit as st
+
 st.set_page_config(page_title="GreenBoost Gemini App", layout="wide", page_icon="🔋")
 
 # Importations des modules
 import pandas as pd
 from PIL import Image
+import os
+from dotenv import load_dotenv
 from modules.gemini_utils import get_gemini_response
 from modules.prompt_templates import get_templates, generate_related_prompts
 from modules.analysis_tools import summarize_text, extract_keywords
 from modules.ui_components import show_footer
+
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
+
+# Lire la clé API depuis la variable d'environnement
+api_key = os.getenv("GOOGLE_API_KEY")
+
+if api_key is None:
+    raise ValueError("La clé API n'est pas définie dans le fichier .env.")
+
+import google.generativeai as genai
+genai.configure(api_key=api_key)
 
 # ✅ Affichage de l'image de bannière (une seule fois)
 banner_path = "assets/Kaggle.png"
@@ -46,30 +61,26 @@ if section == "🏠 Accueil":
     st.markdown("Explorez le marché des **boissons énergétiques bio** grâce à l’intelligence artificielle.")
 
     st.markdown("""
-    ## 🧠 Formation Google x Kaggle – GenAI Intensive
+    ## 🧠 Formation Google avec Kaggle – GenAI Intensive
 
     Cette application est le fruit de ma participation à la formation intensive **GenAI** organisée par **Google Cloud** et **Kaggle**.
-    
+
     Pendant 5 jours, j’ai développé un projet autour de l’analyse du marché des boissons énergétiques bio avec **Google Gemini** et des outils avancés de la data science.
     """)
 
-
-
-
-
     # 🔗 Liens utiles
     st.markdown("### 🔗 Liens utiles")
-    st.markdown("- 📘 [Notebook Kaggle du projet](https://www.kaggle.com/code/sofianechehboune/project-data-genai-2025q1-with-google-gemini)")
-    st.markdown("- 🏁 [Compétition Capstone Kaggle](https://www.kaggle.com/competitions/gen-ai-intensive-course-capstone-2025q1)")
+    st.markdown(
+        "- 📘 [Notebook Kaggle du projet](https://www.kaggle.com/code/sofianechehboune/project-data-genai-2025q1-with-google-gemini)")
 
     # 📄 Bouton de téléchargement du PDF
-    pdf_path = "assets/formation_google_kaggle_genai.pdf"
+    pdf_path = "project_data_genai_2025q1_with_google_gemini.pdf"
     try:
         with open(pdf_path, "rb") as pdf_file:
             st.download_button(
                 label="📄 Télécharger le résumé PDF",
                 data=pdf_file,
-                file_name="Formation_Google_GenAI.pdf",
+                file_name="Capstone_Project_Google_GenAI_2025.pdf",
                 mime="application/pdf"
             )
     except FileNotFoundError:
@@ -77,7 +88,7 @@ if section == "🏠 Accueil":
 
     st.success("🚀 Commencez à interagir avec l’IA depuis le menu à gauche.")
 
-    
+
 elif section == "🎯 Analyse personnalisée":
     st.markdown("## 🎯 Analyse personnalisée")
     prompt = st.text_area("✍️ Saisissez votre prompt :", height=200)
@@ -92,7 +103,7 @@ elif section == "🎯 Analyse personnalisée":
             suggestions = generate_related_prompts(prompt)
 
             for i, suggestion in enumerate(suggestions):
-                if st.button(f"Suggestion {i+1} : {suggestion}"):
+                if st.button(f"Suggestion {i + 1} : {suggestion}"):
                     with st.spinner("Analyse enrichie en cours..."):
                         suggestion_output = get_gemini_response(suggestion)
                         st.subheader(f"📌 Analyse enrichie pour : {suggestion}")
@@ -113,6 +124,7 @@ elif section == "💡 Suggestions génériques":
     auto_prompt = templates[option]
 
     if st.button("Lancer l'analyse enrichie (suggestion générique)"):
+
         with st.spinner("Analyse enrichie avec IA..."):
             auto_output = get_gemini_response(auto_prompt)
             st.subheader("🧠 Résultat enrichi de l'IA")
@@ -122,6 +134,7 @@ elif section == "💡 Suggestions génériques":
             st.markdown(summarize_text(auto_output))
             st.markdown("### 🔑 Mots-clés")
             st.markdown(", ".join(extract_keywords(auto_output)))
+
 
 elif section == "📁 Analyse d’un fichier CSV":
     st.markdown("## 📁 Téléversement d'un fichier CSV")
@@ -156,13 +169,13 @@ elif section == "ℹ️ À propos":
     st.markdown("## ℹ️ À propos de cette application")
     st.markdown("""
     **GreenBoost** est une application conçue pour explorer le marché des boissons énergétiques bio à l’aide de l’IA.
-    
+
     🔍 Utilisez Google Gemini pour générer des insights et résumés pertinents.  
     📁 Analysez vos propres fichiers CSV.  
     🤖 Obtenez des suggestions intelligentes à partir d’un prompt ou d’un modèle.  
-    
+
     **Développée par Sofiane Chehboune**  
-    👉 [LinkedIn](https://www.linkedin.com/in/sofiane-chehboune-5b243766/)
+    👉 [LinkedIn ](https://www.linkedin.com/in/sofiane-chehboune-5b243766/) 
     """)
 
 # ✅ Pied de page

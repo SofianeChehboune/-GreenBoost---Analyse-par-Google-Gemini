@@ -172,3 +172,16 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+echo ".env" >> .gitignore
+.env
+
+# Ignorer les fichiers de clé API
+.env
+
+# Ignorer les fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Ignorer les fichiers de configuration IDE
+.vscode/
+.idea/

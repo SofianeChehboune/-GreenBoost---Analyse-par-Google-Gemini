@@ -1,0 +1,56 @@
+/* ===== Général ===== */
+body {
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333333;
+}
+
+/* ===== Titres ===== */
+h1, h2, h3 {
+    color: #2E8B57; /* Vert forêt */
+    font-weight: 600;
+}
+
+/* ===== Zone de texte personnalisée ===== */
+textarea {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 14px; /* Optionnel, ajuste la taille du texte */
+}
+
+/* ===== Boutons ===== */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel, ajoute de l'ombre sur hover */
+}
+
+/* ===== Section Résultat IA ===== */
+.stMarkdown h2 {
+    color: #4CAF50;
+}
+
+/* ===== Spinner ===== */
+div[data-testid="stSpinner"] {
+    color: #4CAF50;
+    font-weight: bold;
+    animation: rotate 1s linear infinite; /* Ajoute une animation au spinner */
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
