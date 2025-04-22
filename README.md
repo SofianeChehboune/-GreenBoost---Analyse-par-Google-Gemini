@@ -87,8 +87,8 @@ Pour publier votre app sur [Streamlit Cloud](https://streamlit.io/cloud), veille
 - Ajouter `requirements.txt` et `config.toml`
 - Configurer votre variable `GOOGLE_API_KEY` dans l’onglet **".env"**
 - Définir `streamlit_app.py` comme script principal
-## Consulter l'App : 
-[Streamlit App](https://dtgqb6h4k3yiubmghjsqdp.streamlit.app/)
+
+🎯 App en ligne : [GreenBoost sur Streamlit](https://dtgqb6h4k3yiubmghjsqdp.streamlit.app/)
 
 ---
 
@@ -96,7 +96,7 @@ Pour publier votre app sur [Streamlit Cloud](https://streamlit.io/cloud), veille
 
 **Sofiane Chehboune**  
 📧 Contact :
-🔗 [LinkedIn](https://www.linkedin.com/in/sofiane-chehboune-5b243766/)   
+🔗 [LinkedIn – Sofiane Chehboune](https://www.linkedin.com/in/sofiane-chehboune-5b243766/)   
 🔗 [Bluesky](https://bsky.app/profile/sofianepython.bsky.social)
 🔗[kaggle](https://www.kaggle.com/sofianechehboune)
  
