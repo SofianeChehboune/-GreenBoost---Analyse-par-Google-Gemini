@@ -160,7 +160,7 @@ elif section == "ℹ️ À propos":
     📁 Analysez vos propres fichiers CSV.  
     🤖 Obtenez des suggestions intelligentes à partir d’un prompt ou d’un modèle.  
 
-    **Développée par Sofiane Chehboune**  
+    **Développé par Sofiane Chehboune**  
     👉 [LinkedIn ](https://www.linkedin.com/in/sofiane-chehboune-5b243766/) 
     """)
 
